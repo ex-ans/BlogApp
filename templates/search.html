@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{%load static%} 
+{% block title %}Home{% endblock title%}
+{% block additional_styles %} <link rel="stylesheet" href="{% static "home.css" %}"> {% endblock additional_styles %}
+{% block body %}
+{% if alldata %}
+<ol class="blog-list">
+    {% for item in alldata %}
+        <li class="blog-item">
+            <h2>{{ item.title }}</h2>
+            <h4>Author: {{ item.author }}</h4>
+            <p>{{ item.content|truncatechars:100}}</p>
+            <a href='/readmore/{{item.blog_id}}'>Readmore</a>
+        </li>
+    {% endfor %}
+    </ol>
+{% else %}
+<p>No Blogs found.</p>
+{% endif %}
+{% endblock body %}

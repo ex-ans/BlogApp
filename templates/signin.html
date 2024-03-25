@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: orange;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        body1 {
+           display:flex;
+           flex-direction:column;
+        }
+
+        .container {
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .signin-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .signin-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+        .alert {
+            padding: 15px;
+            background-color: black; /* Red */
+            color: white;
+            margin-bottom: 15px;
+          }
+        
+          /* Add a close button and style it */
+          .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+          }
+        
+          /* When hovering over the close button */
+          .closebtn:hover {
+            color: black;
+          }
+    </style>
+</head>
+<body>
+    <div class="body1">
+        <div class="msg">
+            {% if messages %}
+            {% for message in messages %}
+              <div class="alert">
+             <span class="{{ message.tags }}" onclick="this.parentElement.style.display='none';">&times;</span> 
+             {{ message }}
+             </div>
+             {% endfor %}
+           {% endif %}
+           </div>
+            <div class="container">
+                <h2>Sign In</h2>
+                <form action="/signin" method="POST">
+                    {% csrf_token %}
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+        
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+        
+                    <input type="submit" value="Sign Up">
+                    <div class="signin-link">
+                        Dont have an account? <a href="/signup">Sign up</a>
+                    </div>
+                </form>
+            </div> 
+    </div>
+   
+</body>
+</html>

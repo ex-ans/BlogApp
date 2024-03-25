@@ -1,0 +1,35 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Animation for the title */
+.title {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Animation for the author */
+.author {
+    animation: fadeInUp 1s ease-out;
+    animation-delay: 0.5s;
+}
+
+/* Animation for the content */
+.content {
+    animation: fadeInUp 1s ease-out;
+    animation-delay: 1s;
+}
+
+/* Keyframes for the fadeInUp animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

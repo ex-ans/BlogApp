@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: orange;
+        }
+
+        header {
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color:black;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+        }
+
+        .buttons button {
+            margin-left: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .buttons button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .main-content {
+            text-align: center;
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-content a {
+            font-size: 20px;
+            text-decoration: none;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+            display: inline-block;
+        }
+
+        .main-content a:hover {
+            background-color: #0056b3;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .buttons {
+                margin-top: 10px;
+                order: -1;
+            }
+
+            .buttons button {
+                margin-left: 0;
+                margin-right: 10px;
+            }
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons a {
+            display: inline-block;
+            text-decoration: none;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+            margin-right: 10px;
+        }
+
+        .buttons a:hover {
+            background-color: #0056b3;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">My Blog</div>
+        <div class="buttons">
+            <a href="/signin">Signin</a>
+            <a href="/signup">Signup</a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <p>Welcome to Blog App!</p>
+        <p>You can create and publish your blog here!</p>
+        <a href="/signin">Create Blog</a>
+    </div>
+</body>
+</html>

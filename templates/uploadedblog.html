@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{%load static%} 
+{% block title %}Uploaded{% endblock title%}
+{% block additional_styles %} <link rel="stylesheet" href="{% static "home.css" %}"> {% endblock additional_styles %}
+{% block body %}
+{% if blogs %}
+<ol class="blog-list">
+    {% for item in blogs %}
+        <li class="blog-item">
+            <h2>{{ item.title }}</h2>
+            <h4>Author: {{ item.author }}</h4>
+            <p>{{ item.content|truncatechars:100}}</p>
+            <a href='/edit/{{item.blog_id}}'>Edit Blog</a>
+            <a href='/delete/{{item.blog_id}}'>Delete Blog</a>
+        </li>
+    {% endfor %}
+    </ol>
+{% else %}
+<p>No Blogs found.</p>
+{% endif %}
+{% endblock body %}

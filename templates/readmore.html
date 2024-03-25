@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{%load static%} 
+{% block title %}Readmore{% endblock title%}
+{% block additional_styles %} <link rel="stylesheet" href="{% static "readmore.css" %}"> {% endblock additional_styles %}
+{% block body %}
+<div class="container">
+    <!-- Title -->
+    <h1 class="title">{{readmore.title}}</h1>
+    <!-- Author -->
+    <p class="author">{{readmore.author}}</p>
+    <!-- Content -->
+    <div class="content">
+        <p>{{readmore.content}}</p>
+        
+    </div>
+</div>
+{% endblock body %}

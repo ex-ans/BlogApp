@@ -1,0 +1,52 @@
+/* Basic styling for the blog list */
+.blog-list {
+    list-style-type: none;
+    padding: 0;
+    background-color: white;
+}
+
+/* Styling for individual blog items */
+.blog-item {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation for the "Read More" link */
+.blog-item a {
+    display: inline-block;
+    text-decoration: none;
+    color: #007bff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.blog-item:hover a {
+    opacity: 1;
+}
+
+/* Animation for individual blog items */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.blog-item {
+    animation: fade-in 0.5s ease-out;
+}
+

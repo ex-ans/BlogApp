@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{%load static%} 
+{% block title %}Edit{% endblock title%}
+{% block additional_styles %} <link rel="stylesheet" href="{% static "createblog.css" %}"> {% endblock additional_styles %}
+{% block body %}
+<div class="container">
+    <h1>Edit Blog Post</h1>
+    <form action="updated/{{edit.blog_id}}" method="post">
+        {% csrf_token %}
+        <div class="form-group"> 
+            <input type="ids" id="ids" name="ids" value="{{edit.blog_id}}" style="visibility: hidden;" readonly>
+        </div>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{edit.title}}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="{{edit.author}}" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea type="text" id="content" name="content" rows="6"  required>{{edit.content}}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="{{ edit.date|date:'Y-m-d' }}" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Update</button>
+        </div>
+    </form>
+</div>
+{% endblock body %}
